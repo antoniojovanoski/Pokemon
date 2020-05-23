@@ -31,6 +31,9 @@ inner class MyViewHolder(view:View): RecyclerView.ViewHolder(view){
         Picasso.get().load("https://pokeres.bastionbot.org/images/pokemon/${pokemonId}.png").fit().centerInside().into(itemView.image_view_pokemon)
     itemView.text_view_name.text = itemModel.name
         itemView.text_view_position.text=position.toString()
+        itemView.constraint_layout_main.setOnClickListener {
+            pokemonListAdapterClickEvent.invoke(PokemonListAdapterClickEvent.PokemonListAdapterItemClicked(itemModel))
+        }
     }
 }
 
